@@ -110,6 +110,10 @@ PElement GetAdptArrayAt(PAdptArray pArr, int index){
         return NULL;
     }
 
+    if(index < 0){
+        return NULL;
+    }
+
     PElement newpElem = pArr->cpyF(pArr -> pElemArr[index]);
     return newpElem;
 }
