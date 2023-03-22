@@ -102,6 +102,10 @@ PElement GetAdptArrayAt(PAdptArray pArr, int index){
         return NULL;
     }
 
+    if(index < 0){
+        return NULL;
+    }
+
     if(index >= pArr -> Size){
         return NULL;
     }
