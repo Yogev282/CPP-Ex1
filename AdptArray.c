@@ -5,17 +5,6 @@
 #include <math.h>
 
 
-typedef struct AdptArray_
-{
-	size_t Size;
-    DEL_FUNC delF;
-	COPY_FUNC cpyF;
-    PRINT_FUNC printF;
-	PElement* pElemArr;
-	
-} *PAdptArray;
-
-
 PAdptArray CreateAdptArray(COPY_FUNC copyfunc, DEL_FUNC delfunc,PRINT_FUNC printfunc){
 
     PAdptArray pArr = (PAdptArray)malloc(sizeof(struct AdptArray_));
@@ -32,6 +21,7 @@ PAdptArray CreateAdptArray(COPY_FUNC copyfunc, DEL_FUNC delfunc,PRINT_FUNC print
         free(pArr);
         return NULL;
     }
+    //pArr -> pElemArr[0] = NULL;
     for(int i=0; i < pArr -> Size; i++){
         pArr -> pElemArr[i] = NULL;
     }
@@ -111,10 +101,6 @@ PElement GetAdptArrayAt(PAdptArray pArr, int index){
     }
 
     if(pArr -> pElemArr[index] == NULL){
-        return NULL;
-    }
-
-    if(index < 0){
         return NULL;
     }
 
